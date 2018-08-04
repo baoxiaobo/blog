@@ -1,0 +1,24 @@
+{
+    "personManagement": {
+        "name": "人员管理",
+        "code": "personManagement",
+        "result": [
+            {
+                "name":"包大人",
+                "id": "15002394812",
+                "age": "32",
+                "work": "Front-end",
+                "company": "CQFAE",
+                "department": "development"
+            },
+            {
+                "name":"富娟",
+                "id": "17723777144",
+                "age": "28",
+                "work": "PMC",
+                "company": "Foxcon",
+                "department": "Molding"
+            }
+        ]
+    }
+}

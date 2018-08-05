@@ -1,73 +1,100 @@
 <template>
-  <div class="login">
-    <div id="title">
-      <div class="iconfont icon-bokeyuan"></div>
-      <div class="title-mes">
-        <div>包大人的个人博客</div>
-        <div>Mr. Bao's blog</div>
+  <div class="loginPage">
+    <div class="login">
+      <h1>Login</h1>
+      <div>
+        <input type="text" name="u" placeholder="用户名: admin" required="required" v-model="userName"/>
+        <input type="password" name="p" placeholder="密码: admin" required="required" v-model="password"/>
+        <button type="" class="btn-block" @click="loadFrom">登录</button>
       </div>
-    </div>
-    <div id="form">
-      <div class="user input"><label for="">用户名：</label><input type="text"></div>
-      <div class="passWord input"><label for="">密码：</label><input type="text"></div>
-      <div class="load input">登录</div>
-      <div class="remak"></div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Login',
   data () {
     return {
-      msg: '包大人的个人博客'
+      userName: '',
+      password: ''
+    }
+  },
+  methods: {
+    loadFrom: function () {
+      if (this.userName === 'admin' && this.password === 'admin') {
+        this.$router.push('/HomePage')
+      } else {
+        this.$alert('用户名和密码都为admin,点击确定设定正确的用户名和密码', '温馨提示', {
+          confirmButtonText: '确定',
+          callback: action => {
+            this.userName = 'admin'
+            this.password = 'admin'
+          }
+        })
+      }
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-$form-width: 200px;
-$form-height: 50px;
-.login {
-  height: 100%;
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.loginPage {
   width: 100%;
-  background:url('../assets/imgs/background.jpg');
-  background-size:100% 100%;
-  -moz-background-size:100% 100%; /* 老版本的 Firefox */
-  background-repeat:no-repeat;
-  #title {
+  height: 100%;
+  background: #092756;
+  .login {
     position: absolute;
-    width: 20rem;
-    height: 5rem;
-    margin-top: 50px;
-    margin-left: 30px;
-    display: flex;
-    .icon-bokeyuan {
-      padding-top: 6px;
-    }
-    .title-mes {
-      margin-left: 10px;
-      font-size: 1.7rem;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+    width: 300px;
+    height: 300px;
+    h1 {
       color: #fff;
-      div {
-        text-align: left;
-      }
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      letter-spacing: 1px;
+      text-align: center;
     }
-  }
-  #form {
-    position: absolute;
-    width: $form-width;
-    height: $form-height;
-    margin-top: 12rem;
-    margin-left: calc(50% - #{$form-width});
-    .input {
-      margin-top: 10px;
-      width: 22rem;
-      height: 3rem;
-      border: 1px solid #fff;
-      border-radius: 10px;
+    input {
+      width: 100%;
+      margin-bottom: 10px;
+      background: rgba(0, 0, 0, 0.3);
+      border: none;
+      outline: none;
+      padding: 10px;
+      font-size: 13px;
+      color: #fff;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+      box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2),
+        0 1px 1px rgba(255, 255, 255, 0.2);
+      -webkit-transition: box-shadow 0.5s ease;
+      -moz-transition: box-shadow 0.5s ease;
+      -o-transition: box-shadow 0.5s ease;
+      -ms-transition: box-shadow 0.5s ease;
+      transition: box-shadow 0.5s ease;
+    }
+    input:focus {
+      box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4),
+        0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+    .btn-block {
+      width: 100%;
+      height: 37px;
+      border-radius: 4px;
+      display: block;
+      background: #4a77d4;
+      border: 2px solid #4a77d4;
+      color: #fff;
     }
   }
 }

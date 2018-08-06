@@ -22,7 +22,7 @@ export default {
   methods: {
     loadFrom: function () {
       if (this.userName === 'admin' && this.password === 'admin') {
-        this.$router.push('/HomePage')
+        this.$router.push('/homePage')
       } else {
         this.$alert('用户名和密码都为admin,点击确定设定正确的用户名和密码', '温馨提示', {
           confirmButtonText: '确定',

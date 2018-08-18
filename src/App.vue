@@ -9,7 +9,7 @@ export default {
   name: 'App'
 }
 </script>
-<style>
+<style lang="scss">
 html,body {
   margin: 0;
   padding: 0;
@@ -26,4 +26,18 @@ html,body {
   text-align: center;
   color: #2c3e50;
 }
+
+.el-dropdown-menu {
+  border: 1px solid #999;
+  border-radius: 0;
+  .popper__arrow {
+    display: none
+  }
+  li {
+    i::before {
+      margin-right: 10px;
+    }
+  }
+}
+
 </style>

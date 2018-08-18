@@ -1,11 +1,10 @@
 <template>
   <div class="homePage">
     <el-container>
-      <el-aside width="200px"><Nav /></el-aside>
+      <el-aside :width="asideWidth"><Nav /></el-aside>
       <el-container>
         <el-header><Header /></el-header>
         <el-main><router-view></router-view></el-main>
-        <el-footer><Footer /></el-footer>
       </el-container>
     </el-container>
   </div>
@@ -15,7 +14,6 @@
 import Nav from './Nav'
 import Header from './Header'
 import Main from './Main'
-import Footer from './Footer'
 import axios from 'axios'
 axios.get('/api/personManagement').then(function (res) {
   console.log(res)
@@ -26,7 +24,12 @@ export default {
       msg: '首页'
     }
   },
-  components: {Nav, Header, Main, Footer}
+  components: {Nav, Header, Main},
+  computed: {
+    asideWidth () {
+      return this.$store.state.isCollapse ? '70px' : '200px'
+    }
+  }
 }
 </script>
 
@@ -36,28 +39,24 @@ export default {
   .el-container {
     height: 100%;
     .el-header {
+      background: #fff;
       color: #333;
-      background-color: #b3c0d1;
-    }
-
-    .el-footer {
-      background-color: #b3c0d1;
-      color: #333;
-      line-height: 10%;
+      height: 45px!important;
     }
 
     .el-aside {
-      background-color: #d3dce6;
-      color: #333;
       text-align: center;
       line-height: 100%;
     }
 
     .el-main {
-      background-color: #e9eef3;
       color: #333;
       text-align: center;
       line-height: 80%;
+    }
+
+    .el-container {
+      background: #ddd;
     }
   }
 }

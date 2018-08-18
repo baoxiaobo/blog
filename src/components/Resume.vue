@@ -1,6 +1,6 @@
 <template>
-  <div class="footer">
-    Footer
+  <div class="resume">
+    {{msg}}
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   data () {
     return {
-      msg: 'footer'
+      msg: '不好意思，个人简历还没写呢'
     }
   }
 }

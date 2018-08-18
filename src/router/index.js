@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import HomePage from '@/components/HomePage'
 import Main from '@/components/Main'
-import Maina from '@/components/Maina'
+import Resume from '@/components/Resume'
 
 Vue.use(Router)
 
@@ -25,9 +25,9 @@ export default new Router({
           component: Main
         },
         {
-          path: '/homePage/maina',
-          name: 'Maina',
-          component: Maina
+          path: '/homePage/resume',
+          name: 'Resume',
+          component: Resume
         }
       ]
     }
